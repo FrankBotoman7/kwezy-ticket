@@ -7,52 +7,29 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>KWEZY BUSES | Ticket Verification</title>
+    <title>KWEZY BUSES | Ticket Information</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="card">
+    <div class="ticket-information">
+        <p>
+            <strong>Ticket Number:</strong>
+            KWE6526073
+        </p>
 
-    <h2>Result</h2>
+        <p>
+            <strong>Customer:</strong>
+            FRANK BOTOMAN
+        </p>
 
-    <div class="icon">
-        T
+        <p>
+            <strong>Phone:</strong>
+            0993035325
+        </p>
     </div>
-
-    <div class="label">
-        Text
-    </div>
-
-    <div class="result">
-        TicketNo:KWE6526073 Customer:FRANK BOTOMAN Phone:0993035325
-    </div>
-
-    <button onclick="searchAgain()">
-        Search
-    </button>
-
-    <button onclick="copyText()">
-        Copy text
-    </button>
-
-</div>
-
-<script>
-    function searchAgain() {
-        location.reload();
-    }
-
-    function copyText() {
-        navigator.clipboard.writeText(
-            document.querySelector(".result").innerText
-        );
-
-        alert("Copied!");
-    }
-</script>
 
 </body>
 </html>
