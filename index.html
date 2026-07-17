@@ -2,96 +2,55 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-
     <meta
         name="viewport"
-        content="width=device-width, initial-scale=1, viewport-fit=cover"
+        content="width=device-width, initial-scale=1.0"
     >
 
-    <title>Result</title>
+    <title>KWEZY BUSES | Ticket Verification</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<main class="result-page">
+<div class="card">
 
-    <!-- Back arrow -->
-    <button
-        type="button"
-        class="back-button"
-        aria-label="Go back"
-        onclick="goBack()"
-    >
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path
-                d="M20 11H7.83L13.42 5.41L12 4L4 12L12 20L13.42 18.59L7.83 13H20V11Z"
-            />
-        </svg>
-    </button>
+    <h2>Result</h2>
 
-    <!-- Heading -->
-    <h1>Result</h1>
-
-    <!-- T logo -->
-    <div class="text-icon" aria-hidden="true">
+    <div class="icon">
         T
     </div>
 
-    <!-- Result text -->
-    <section class="text-section">
-        <div class="label">Text</div>
-
-        <p class="result-text" id="resultText">
-            TicketNo:KWE6526073 Customer:FRANK BOTOMAN Phone:0993035325
-        </p>
-    </section>
-
-    <!-- Bottom buttons -->
-    <div class="actions">
-        <button type="button" onclick="searchAgain()">
-            Search
-        </button>
-
-        <button type="button" onclick="copyText()">
-            Copy text
-        </button>
+    <div class="label">
+        Text
     </div>
 
-</main>
+    <div class="result">
+        TicketNo:KWE6526073 Customer:FRANK BOTOMAN Phone:0993035325
+    </div>
+
+    <button onclick="searchAgain()">
+        Search
+    </button>
+
+    <button onclick="copyText()">
+        Copy text
+    </button>
+
+</div>
 
 <script>
-    const ticketText =
-        "TicketNo:KWE6526073 Customer:FRANK BOTOMAN Phone:0993035325";
-
-    function goBack() {
-        if (window.history.length > 1) {
-            window.history.back();
-        }
-    }
-
     function searchAgain() {
-        window.location.reload();
+        location.reload();
     }
 
-    async function copyText() {
-        try {
-            await navigator.clipboard.writeText(ticketText);
-            alert("Copied!");
-        } catch (error) {
-            const textarea = document.createElement("textarea");
+    function copyText() {
+        navigator.clipboard.writeText(
+            document.querySelector(".result").innerText
+        );
 
-            textarea.value = ticketText;
-            textarea.style.position = "fixed";
-            textarea.style.opacity = "0";
-
-            document.body.appendChild(textarea);
-            textarea.select();
-            document.execCommand("copy");
-            textarea.remove();
-
-            alert("Copied!");
-        }
+        alert("Copied!");
     }
 </script>
 
