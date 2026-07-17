@@ -5,11 +5,10 @@
 
     <meta
         name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+        content="width=device-width, initial-scale=1, viewport-fit=cover"
     >
 
     <title>Result</title>
-
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -17,78 +16,53 @@
 
 <main class="result-page">
 
+    <!-- Back arrow -->
     <button
-        class="back-button"
         type="button"
+        class="back-button"
         aria-label="Go back"
         onclick="goBack()"
     >
-        <svg
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-        >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
             <path
-                d="M15 18L9 12L15 6"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.8"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                d="M20 11H7.83L13.42 5.41L12 4L4 12L12 20L13.42 18.59L7.83 13H20V11Z"
             />
         </svg>
     </button>
 
+    <!-- Heading -->
     <h1>Result</h1>
 
-    <section class="result-content">
+    <!-- T logo -->
+    <div class="text-icon" aria-hidden="true">
+        T
+    </div>
 
-        <div class="text-icon" aria-hidden="true">
-            T
-        </div>
+    <!-- Result text -->
+    <section class="text-section">
+        <div class="label">Text</div>
 
-        <div class="text-information">
-
-            <div class="label">Text</div>
-
-            <p class="result-text" id="resultText">
-                TicketNo:KWE6526073 Customer:FRANK BOTOMAN Phone:0993035325
-            </p>
-
-        </div>
-
+        <p class="result-text" id="resultText">
+            TicketNo:KWE6526073 Customer:FRANK BOTOMAN Phone:0993035325
+        </p>
     </section>
 
-    <div class="button-area">
-
-        <button
-            class="action-button"
-            type="button"
-            onclick="searchAgain()"
-        >
+    <!-- Bottom buttons -->
+    <div class="actions">
+        <button type="button" onclick="searchAgain()">
             Search
         </button>
 
-        <button
-            class="action-button"
-            type="button"
-            onclick="copyText()"
-        >
+        <button type="button" onclick="copyText()">
             Copy text
         </button>
-
     </div>
 
 </main>
 
 <script>
-    /*
-     * Customer information retained in the code.
-     */
-    const ticketData = {
-        ticketNumber: "KWE6526073",
-        customerName: "FRANK BOTOMAN",
-        phoneNumber: "0993035325"
-    };
+    const ticketText =
+        "TicketNo:KWE6526073 Customer:FRANK BOTOMAN Phone:0993035325";
 
     function goBack() {
         if (window.history.length > 1) {
@@ -101,34 +75,23 @@
     }
 
     async function copyText() {
-        const resultText =
-            `TicketNo:${ticketData.ticketNumber} ` +
-            `Customer:${ticketData.customerName} ` +
-            `Phone:${ticketData.phoneNumber}`;
-
         try {
-            await navigator.clipboard.writeText(resultText);
+            await navigator.clipboard.writeText(ticketText);
             alert("Copied!");
         } catch (error) {
-            fallbackCopy(resultText);
+            const textarea = document.createElement("textarea");
+
+            textarea.value = ticketText;
+            textarea.style.position = "fixed";
+            textarea.style.opacity = "0";
+
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand("copy");
+            textarea.remove();
+
+            alert("Copied!");
         }
-    }
-
-    function fallbackCopy(text) {
-        const temporaryInput = document.createElement("textarea");
-
-        temporaryInput.value = text;
-        temporaryInput.style.position = "fixed";
-        temporaryInput.style.opacity = "0";
-
-        document.body.appendChild(temporaryInput);
-
-        temporaryInput.select();
-        document.execCommand("copy");
-
-        temporaryInput.remove();
-
-        alert("Copied!");
     }
 </script>
 
