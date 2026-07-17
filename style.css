@@ -1,191 +1,49 @@
-* {
-    box-sizing: border-box;
-}
-
-html,
 body {
-    width: 100%;
-    min-height: 100%;
+    background: #fff;
+    font-family: Arial;
     margin: 0;
+    padding: 30px;
 }
 
-body {
-    background: #ffffff;
-    color: #202124;
-    font-family: Roboto, Arial, Helvetica, sans-serif;
-    -webkit-font-smoothing: antialiased;
+.card {
+    max-width: 420px;
+    margin: auto;
 }
 
-/*
- * The screenshot is based on a 360px-wide mobile screen.
- */
-.result-page {
-    position: relative;
-    width: 100%;
-    max-width: 360px;
-    height: 100vh;
-    height: 100dvh;
-    min-height: 640px;
-    margin: 0 auto;
-    padding: 0 29px;
-    overflow: hidden;
-    background: #ffffff;
-}
-
-/* Back arrow */
-
-.back-button {
-    position: absolute;
-    top: 18px;
-    left: 24px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    width: 32px;
-    height: 32px;
-    padding: 0;
-
-    color: #252525;
-    background: transparent;
-    border: 0;
-    cursor: pointer;
-}
-
-.back-button svg {
-    width: 28px;
-    height: 28px;
-    fill: currentColor;
-}
-
-/* Result heading */
-
-h1 {
-    position: absolute;
-    top: 72px;
-    left: 29px;
-
-    margin: 0;
-
-    color: #202124;
-    font-size: 32px;
+h2 {
+    font-size: 45px;
     font-weight: 300;
-    line-height: 1;
-    letter-spacing: -0.8px;
 }
 
-/* T logo */
-
-.text-icon {
-    position: absolute;
-    top: 167px;
-    left: 50%;
-    transform: translateX(-50%);
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    width: 76px;
-    height: 76px;
-
-    color: #ffffff;
-    background: #51586c;
-    border-radius: 11px;
-
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 55px;
-    font-weight: 400;
-    line-height: 1;
-
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.18);
-}
-
-/* Result information */
-
-.text-section {
-    position: absolute;
-    top: 296px;
-    left: 29px;
-    right: 29px;
+.icon {
+    width: 90px;
+    height: 90px;
+    background: #49516A;
+    color: white;
+    font-size: 60px;
+    text-align: center;
+    line-height: 90px;
+    border-radius: 15px;
+    margin: auto;
 }
 
 .label {
-    margin: 0 0 7px;
-
-    color: #c5c5c5;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 1.2;
+    margin-top: 40px;
+    color: #999;
 }
 
-.result-text {
+.result {
+    font-size: 24px;
+    margin-top: 10px;
+}
+
+button {
     width: 100%;
-    margin: 0;
-
-    color: #202124;
-    font-size: 18px;
-    font-weight: 500;
-    line-height: 1.24;
-    letter-spacing: -0.15px;
-
-    overflow-wrap: normal;
-    word-break: normal;
-}
-
-/* Bottom buttons */
-
-.actions {
-    position: absolute;
-    right: 28px;
-    bottom: 10px;
-    left: 28px;
-
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-}
-
-.actions button {
-    width: 100%;
-    height: 50px;
-    padding: 0;
-
-    color: #202124;
-    background: #f1f1f1;
-    border: 0;
-    border-radius: 28px;
-
-    font-family: inherit;
-    font-size: 18px;
-    font-weight: 500;
-
+    padding: 20px;
+    border: none;
+    border-radius: 40px;
+    margin-top: 25px;
+    font-size: 22px;
+    background: #EFEFEF;
     cursor: pointer;
-}
-
-.actions button:active {
-    background: #e5e5e5;
-}
-
-/*
- * Slight adjustment for very short phone screens.
- */
-@media (max-height: 680px) {
-    .text-icon {
-        top: 145px;
-    }
-
-    .text-section {
-        top: 260px;
-    }
-
-    .actions {
-        bottom: 8px;
-        gap: 10px;
-    }
-
-    .actions button {
-        height: 46px;
-    }
 }
