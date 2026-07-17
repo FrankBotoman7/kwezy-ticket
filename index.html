@@ -1,80 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link rel="stylesheet" href="style.css">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KWEZY BUSES | Ticket Verification</title>
+    <meta charset="UTF-8">
 
-<link rel="stylesheet" href="style.css">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+    >
+
+    <title>Result</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="card">
+<main class="result-page">
 
-<h2>Result</h2>
+    <button
+        class="back-button"
+        type="button"
+        aria-label="Go back"
+        onclick="goBack()"
+    >
+        <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+        >
+            <path
+                d="M15 18L9 12L15 6"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            />
+        </svg>
+    </button>
 
-<div class="icon">
-T
-</div>
+    <h1>Result</h1>
 
-<div class="label">Text</div>
+    <section class="result-content">
 
-<div class="result">
+        <div class="text-icon" aria-hidden="true">
+            T
+        </div>
 
-TicketNo: <b>KWE6526073</b><br><br>
+        <div class="text-information">
 
-Customer:
-<b>FRANK BOTOMAN</b><br><br>
+            <div class="label">Text</div>
 
-Phone:
-<b>0993035325</b><br><br>
+            <p class="result-text" id="resultText">
+                TicketNo:KWE6526073 Customer:FRANK BOTOMAN Phone:0993035325
+            </p>
 
-Passenger:
-Adult<br><br>
+        </div>
 
-Route:
-Blantyre to Lilongwe<br><br>
+    </section>
 
-Seat:
-S08<br><br>
+    <div class="button-area">
 
-Date:
-19-JUL-2026<br><br>
+        <button
+            class="action-button"
+            type="button"
+            onclick="searchAgain()"
+        >
+            Search
+        </button>
 
-Time:
-01:00PM - 05:30PM<br><br>
+        <button
+            class="action-button"
+            type="button"
+            onclick="copyText()"
+        >
+            Copy text
+        </button>
 
-Ticket Cost:
-MWK 85,000.00
+    </div>
 
-</div>
-
-<button onclick="searchAgain()">
-Search
-</button>
-
-<button onclick="copyText()">
-Copy text
-</button>
-
-</div>
+</main>
 
 <script>
+    /*
+     * Customer information retained in the code.
+     */
+    const ticketData = {
+        ticketNumber: "KWE6526073",
+        customerName: "FRANK BOTOMAN",
+        phoneNumber: "0993035325"
+    };
 
-function searchAgain(){
-location.reload();
-}
+    function goBack() {
+        if (window.history.length > 1) {
+            window.history.back();
+        }
+    }
 
-function copyText(){
+    function searchAgain() {
+        window.location.reload();
+    }
 
-navigator.clipboard.writeText(document.querySelector(".result").innerText);
+    async function copyText() {
+        const resultText =
+            `TicketNo:${ticketData.ticketNumber} ` +
+            `Customer:${ticketData.customerName} ` +
+            `Phone:${ticketData.phoneNumber}`;
 
-alert("Copied!");
+        try {
+            await navigator.clipboard.writeText(resultText);
+            alert("Copied!");
+        } catch (error) {
+            fallbackCopy(resultText);
+        }
+    }
 
-}
+    function fallbackCopy(text) {
+        const temporaryInput = document.createElement("textarea");
 
+        temporaryInput.value = text;
+        temporaryInput.style.position = "fixed";
+        temporaryInput.style.opacity = "0";
+
+        document.body.appendChild(temporaryInput);
+
+        temporaryInput.select();
+        document.execCommand("copy");
+
+        temporaryInput.remove();
+
+        alert("Copied!");
+    }
 </script>
 
 </body>
