@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+
     <meta
         name="viewport"
         content="width=device-width, initial-scale=1.0"
@@ -46,9 +47,9 @@
     }
 
     function copyText() {
-        navigator.clipboard.writeText(
-            document.querySelector(".result").innerText
-        );
+        const result = document.querySelector(".result").innerText;
+
+        navigator.clipboard.writeText(result);
 
         alert("Copied!");
     }
