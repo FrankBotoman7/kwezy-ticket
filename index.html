@@ -1,49 +1,58 @@
-body {
-    background: #fff;
-    font-family: Arial;
-    margin: 0;
-    padding: 30px;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-.card {
-    max-width: 420px;
-    margin: auto;
-}
+    <title>KWEZY BUSES | Ticket Verification</title>
 
-h2 {
-    font-size: 45px;
-    font-weight: 300;
-}
+    <link rel="stylesheet" href="style.css">
+</head>
 
-.icon {
-    width: 90px;
-    height: 90px;
-    background: #49516A;
-    color: white;
-    font-size: 60px;
-    text-align: center;
-    line-height: 90px;
-    border-radius: 15px;
-    margin: auto;
-}
+<body>
 
-.label {
-    margin-top: 40px;
-    color: #999;
-}
+<div class="card">
 
-.result {
-    font-size: 24px;
-    margin-top: 10px;
-}
+    <h2>Result</h2>
 
-button {
-    width: 100%;
-    padding: 20px;
-    border: none;
-    border-radius: 40px;
-    margin-top: 25px;
-    font-size: 22px;
-    background: #EFEFEF;
-    cursor: pointer;
-}
+    <div class="icon">
+        T
+    </div>
+
+    <div class="label">
+        Text
+    </div>
+
+    <div class="result">
+        TicketNo:KWE6526073 Customer:FRANK BOTOMAN Phone:0993035325
+    </div>
+
+    <button onclick="searchAgain()">
+        Search
+    </button>
+
+    <button onclick="copyText()">
+        Copy text
+    </button>
+
+</div>
+
+<script>
+    function searchAgain() {
+        location.reload();
+    }
+
+    function copyText() {
+        navigator.clipboard.writeText(
+            document.querySelector(".result").innerText
+        );
+
+        alert("Copied!");
+    }
+</script>
+
+</body>
+</html>
