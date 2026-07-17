@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KWEZY BUSES | Ticket Verification</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="card">
+
+<h2>Result</h2>
+
+<div class="icon">
+T
+</div>
+
+<div class="label">Text</div>
+
+<div class="result">
+
+TicketNo: <b>KWE6526073</b><br><br>
+
+Customer:
+<b>FRANK BOTOMAN</b><br><br>
+
+Phone:
+<b>0993035325</b><br><br>
+
+Passenger:
+Adult<br><br>
+
+Route:
+Blantyre to Lilongwe<br><br>
+
+Seat:
+S08<br><br>
+
+Date:
+19-JUL-2026<br><br>
+
+Time:
+01:00PM - 05:30PM<br><br>
+
+Ticket Cost:
+MWK 85,000.00
+
+</div>
+
+<button onclick="searchAgain()">
+Search
+</button>
+
+<button onclick="copyText()">
+Copy text
+</button>
+
+</div>
+
+<script>
+
+function searchAgain(){
+location.reload();
+}
+
+function copyText(){
+
+navigator.clipboard.writeText(document.querySelector(".result").innerText);
+
+alert("Copied!");
+
+}
+
+</script>
+
+</body>
+</html>
